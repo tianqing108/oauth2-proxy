@@ -5,6 +5,7 @@ WORKDIR $GOPATH/src/github.com/oauth2-proxy/oauth2-proxy
 
 # Fetch dependencies
 COPY go.mod go.sum ./
+RUN go env -w GOPROXY=https://goproxy.cn
 RUN GO111MODULE=on go mod download
 
 # Now pull in our code
